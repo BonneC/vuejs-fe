@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <router-link class="nav-link" to="/">Home</router-link>
+                        <router-link class="nav-link" :to="{name: 'home'}">Home</router-link>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Graphs</a>
@@ -33,6 +33,6 @@
 
 <style scoped>
     .nav-bar{
-        margin-left: 200px;
+        margin-left: 250px;
     }
 </style>

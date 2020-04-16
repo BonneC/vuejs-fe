@@ -2,10 +2,26 @@
     <div id="mySidenav" class="sidenav">
         <uL>
             <li>
-                <router-link :to="{name: 'gallery'}">Gallery</router-link>
+                <router-link :to="{name: 'image', params:{id: '1'}}">Image</router-link>
             </li>
             <li>
                 <router-link :to="{name: 'home'}">About</router-link>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gallery
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <router-link class="dropdown-item" :to="{name: 'gallery', params:{category: 'graphs'}}">Graphs
+                        </router-link>
+                        <router-link class="dropdown-item" :to="{name: 'gallery', params:{category: 'drawings'}}">
+                            Drawings
+                        </router-link>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
             </li>
         </uL>
     </div>
@@ -48,7 +64,12 @@
 
     /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
     @media screen and (max-height: 450px) {
-        .sidenav {padding-top: 15px;}
-        .sidenav a {font-size: 18px;}
+        .sidenav {
+            padding-top: 15px;
+        }
+
+        .sidenav a {
+            font-size: 18px;
+        }
     }
 </style>
