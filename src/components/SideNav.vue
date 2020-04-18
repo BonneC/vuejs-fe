@@ -14,9 +14,9 @@
                         Gallery
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <router-link class="dropdown-item" :to="{name: 'gallery', params:{category: 'graphs'}}">Graphs
+                        <router-link class="dropdown-item" :to="{name: 'gallery', params:{category: 'cat1'}}">Graphs
                         </router-link>
-                        <router-link class="dropdown-item" :to="{name: 'gallery', params:{category: 'drawings'}}">
+                        <router-link class="dropdown-item" :to="{name: 'gallery', params:{category: 'cat2'}}">
                             Drawings
                         </router-link>
                         <a class="dropdown-item" href="#">Something else here</a>

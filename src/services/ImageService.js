@@ -9,11 +9,14 @@ const apiClient = axios.create({
     }
 })
 
-export default{
-    getImages(){
+export default {
+    getImages() {
         return apiClient.get('/gallery')
     },
-    getImage(id){
-        return apiClient.get('/gallery/'+id)
+    getImagesCat(category) {
+        return apiClient.get('/gallery/category/' + category)
+    },
+    getImage(id) {
+        return apiClient.get('/gallery/' + id)
     }
 }

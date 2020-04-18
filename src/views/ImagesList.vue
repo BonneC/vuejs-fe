@@ -12,7 +12,7 @@
 
     export default {
         name: "ImagesList",
-        components:{
+        components: {
             ImageCard
         },
         props: {
@@ -27,17 +27,27 @@
             }
 
         },
-        computed: {
+        methods: {
+            getImages() {
+                ImageService.getImagesCat(this.category)
+                    .then(response => {
+                        console.log(response.data)
+                        this.images = response.data
+                    })
+                    .catch(error => {
+                        console.log('error:' + error.response)
+                    })
+                console.log(this.category)
+            }
+        },
+        watch: {
+            category: function (newVal, oldVal) { // watch it
+                console.log('Prop changed: ', newVal, ' | was: ', oldVal)
+                this.getImages()
+            }
         },
         created() {
-            ImageService.getImages()
-                .then(response => {
-                    console.log(response.data)
-                    this.images = response.data
-                })
-                .catch(error => {
-                    console.log('error:' + error.response)
-                })
+            this.getImages()
         }
     }
 </script>

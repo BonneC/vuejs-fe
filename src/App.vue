@@ -3,7 +3,7 @@
         <app-navbar></app-navbar>
         <side-nav></side-nav>
 
-<!--        <app-gallery></app-gallery>-->
+        <!--        <app-gallery></app-gallery>-->
         <router-view/>
     </div>
 </template>
@@ -12,9 +12,7 @@
 
     export default {
         name: 'App',
-        components: {
-
-        }
+        components: {}
     }
 </script>
 

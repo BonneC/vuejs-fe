@@ -10,11 +10,11 @@
                 </span>
         <div v-show="selectedTab==='Graphs'">
             <img alt="Vue logo" src="../assets/logo.png">
-            <images-list :cat="category"/>
+            <images-list :category="category"/>
         </div>
         <div v-show="selectedTab==='Drawings'">
             <img alt="Vue logo" src="../assets/logo.png">
-            <images-list :cat="category"/>
+            <images-list :category="category"/>
         </div>
         <!--        <nav class="nav-bar navbar navbar-expand-lg navbar-light bg-light">-->
         <!--            <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
@@ -35,7 +35,7 @@
 
 <script>
     export default {
-        name: "Gallery.vue",
+        name: "Gallery",
         data() {
             return {
                 tabs: ['Graphs', 'Drawings'],
@@ -43,12 +43,12 @@
                 category: 'cat1'
             }
         },
-        methods:{
-            changeTab(tab){
+        methods: {
+            changeTab(tab) {
                 this.selectedTab = tab
-                if(tab==='Graphs')
+                if (tab === 'Graphs')
                     this.category = 'cat1'
-                else this.category= 'cat2'
+                else this.category = 'cat2'
             }
         }
     }
