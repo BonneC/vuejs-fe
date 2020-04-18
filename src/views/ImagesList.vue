@@ -1,14 +1,20 @@
 <template>
     <div>
         <h1>List of The Images for {{category}}</h1>
-        <router-link :to="{name: 'image', params:{id: '1'}}">Image 1</router-link>
+        <ImageCard v-for="image in images" :key="image.id" :image="image"></ImageCard>
     </div>
 
 </template>
 
 <script>
+    import ImageService from "@/services/ImageService";
+    import ImageCard from "@/components/ImageCard";
+
     export default {
         name: "ImagesList",
+        components:{
+            ImageCard
+        },
         props: {
             category: {
                 type: String,
@@ -17,20 +23,28 @@
         },
         data() {
             return {
-
+                images: []
             }
 
         },
-        computed:{
-        //     category(){
-        //         if(this.cat==='cat1')
-        //             return 'Graphs'
-        //         else return 'Drawings'
-        //     }
+        computed: {
+        },
+        created() {
+            ImageService.getImages()
+                .then(response => {
+                    console.log(response.data)
+                    this.images = response.data
+                })
+                .catch(error => {
+                    console.log('error:' + error.response)
+                })
         }
     }
 </script>
 
 <style scoped>
+    .card {
+        margin-left: 300px;
+    }
 
 </style>
