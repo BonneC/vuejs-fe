@@ -1,4 +1,5 @@
 import BootstrapVue from 'bootstrap-vue'
+import Lightbox from 'vue-easy-lightbox'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/css/style.css'
@@ -15,8 +16,10 @@ import ImageShow from "@/views/ImageShow";
 
 import router from './router'
 
+
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
+Vue.use(Lightbox)
 Vue.config.productionTip = false
 
 Vue.component('app-navbar', Navbar)

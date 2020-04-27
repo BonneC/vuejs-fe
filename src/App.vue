@@ -18,11 +18,9 @@
 
 <style>
     #app {
-        font-family: Bangers, Avenir, Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
+        /*-webkit-font-smoothing: antialiased;*/
+        /*-moz-osx-font-smoothing: grayscale;*/
+
         margin-left: 250px;
     }
 </style>
