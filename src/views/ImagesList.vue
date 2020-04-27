@@ -21,9 +21,9 @@
                          v-for="(src, index) in urls"
                          :key="index"
                          @click="() => showImg(index)">
-                        <a class="gallery-img" :href="src">
+<!--                        <a class="gallery-img" :href="src">-->
                             <img class="portfolio-item set-bg" :src="src">
-                        </a>
+<!--                        </a>-->
                         <div class="gallery-content">
                             <h4>{{images[index].title}}</h4>
                             <p>Deskripshon</p>
@@ -107,5 +107,7 @@
 </script>
 
 <style scoped>
-
+ .container{
+     margin-left: 150px;
+ }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container-fluid">
         <h2>ABOUT MEH</h2>
     </div>
 </template>
@@ -11,5 +11,7 @@
 </script>
 
 <style scoped>
-
+    .container-fluid{
+        margin-left: 150px;
+    }
 </style>

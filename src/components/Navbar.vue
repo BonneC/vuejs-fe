@@ -32,5 +32,7 @@
 </script>
 
 <style scoped>
-
+    .nav-bar {
+        margin-left: 150px;
+    }
 </style>

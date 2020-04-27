@@ -21,6 +21,6 @@
         /*-webkit-font-smoothing: antialiased;*/
         /*-moz-osx-font-smoothing: grayscale;*/
 
-        margin-left: 250px;
+        /*margin-left: 150px;*/
     }
 </style>

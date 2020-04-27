@@ -37,7 +37,7 @@
     .sidenav {
         height: 100%; /* 100% Full-height */
         /*margin-top:60px;*/
-        width: 250px; /* 0 width - change this with JavaScript */
+        width: 150px; /* 0 width - change this with JavaScript */
         position: fixed; /* Stay in place */
         z-index: 1; /* Stay on top */
         top: 0; /* Stay at the top */
