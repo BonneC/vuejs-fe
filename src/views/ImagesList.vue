@@ -1,37 +1,29 @@
 <template>
-    <div class="container">
-        <h1>List of The Images for {{category}}</h1>
-        <!--        <ImageCard v-for="image in images" :key="image.id" :image="image"></ImageCard>-->
-<!--        <div class="container-fluid p-md-0 ">-->
-<!--            <div class="row portfolios-area">-->
-<!--                <div class="mix col-lg-6 col-md-6 web"-->
-<!--                     v-for="(src, index) in urls"-->
-<!--                     :key="index"-->
-<!--                     @click="() => showImg(index)"-->
-<!--                >-->
-<!--                    <img class="portfolio-item set-bg" :src="src">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-        <section class="sonar-projects-area" id="projects">
-            <div class="container-fluid">
-                <div class="row sonar-portfolio">
-                    <div class="col-12 col-sm-6 col-lg-3 single_gallery_item landscapes studio wow fadeInUpBig"
-                         data-wow-delay="300ms"
-                         v-for="(src, index) in urls"
-                         :key="index"
-                         @click="() => showImg(index)">
-<!--                        <a class="gallery-img" :href="src">-->
-                            <img class="portfolio-item set-bg" :src="src">
-<!--                        </a>-->
-                        <div class="gallery-content">
-                            <h4>{{images[index].title}}</h4>
-                            <p>Deskripshon</p>
-                        </div>
+    <div class="container-fluid clearfix" id="imagesList">
+<!--        <div class="partition-title">LIST OF THE IMAGES FOR {{category}}</div>-->
+        <div class="row">
+            <div class="col-md-4"
+                 v-for="(src, index) in urls"
+                 :key="index">
+                <div id="imageCard" class="show-image card"
+                     @click="() => showImg(index)">
+                    <!--                <div class="col-md-4">-->
+                    <!--                    <div class="show-image card"-->
+                    <!--                         >-->
+
+                    <div class="thumbnail" style="background: black">
+                        <img class="card-img-top" :src="src" alt="img">
                     </div>
+
+                    <div class="card-body">
+                        <h4>{{images[index].title}}</h4>
+                        <p>Deskripshon</p>
+                    </div>
+                    <!--                    </div>-->
+                    <!--                </div>-->
                 </div>
             </div>
-        </section>
+        </div>
         <vue-easy-lightbox
                 :visible="visible"
                 :imgs="urls"
@@ -51,7 +43,6 @@
         name: "ImagesList",
         components: {
             VueEasyLightbox
-            // ImageCard
         },
         props: {
             category: {
@@ -102,12 +93,78 @@
         },
         created() {
             this.getImages()
+
         }
     }
 </script>
 
-<style scoped>
- .container{
-     margin-left: 150px;
- }
+<style scoped lang="scss">
+    .container {
+        #imagesList {
+            background: #0f1010;
+            padding-bottom: 100px;
+            margin-top: 30px;
+            box-shadow: 1px 1px 10px #0f1010;
+        }
+
+        label {
+            font-size: 15px;
+        }
+
+        #imageCard {
+        }
+
+        .card-body {
+            padding: 0;
+        }
+
+        .img-title {
+            font-family: "Roboto";
+            letter-spacing: 1px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .thumbnail {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .thumbnail img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 100%;
+            width: auto;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .thumbnail img.portrait {
+            width: 100%;
+            height: auto;
+        }
+
+        div.show-image {
+            position: relative;
+            float: left;
+            margin: 5px;
+        }
+
+        @mixin clearfix() {
+            &::after {
+                display: block;
+                content: "";
+                clear: both;
+            }
+        }
+
+        // Usage as a mixin
+        .element {
+            @include clearfix;
+        }
+    }
 </style>

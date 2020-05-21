@@ -12,6 +12,5 @@
 
 <style scoped>
     .container-fluid{
-        margin-left: 150px;
     }
 </style>

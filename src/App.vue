@@ -1,10 +1,12 @@
 <template>
     <div id="app">
         <app-navbar></app-navbar>
-        <side-nav></side-nav>
+<!--        <side-nav></side-nav>-->
 
         <!--        <app-gallery></app-gallery>-->
+        <div style="padding-top: 40px">
         <router-view/>
+        </div>
     </div>
 </template>
 
@@ -12,15 +14,27 @@
 
     export default {
         name: 'App',
-        components: {}
+        components: {},
+        data(){
+            return{
+                height: window.innerHeight + 'px',
+                width: window.innerWidth + 'px'
+            }
+        },
+        computed:{
+            styleCSS(){
+                console.log(this.height)
+                return {
+                    // '--height-screen': this.height,
+                    // '--width-screen': this.width
+                }
+            }
+        }
     }
 </script>
 
 <style>
     #app {
-        /*-webkit-font-smoothing: antialiased;*/
-        /*-moz-osx-font-smoothing: grayscale;*/
-
-        /*margin-left: 150px;*/
+        background-color:#232323;
     }
 </style>
