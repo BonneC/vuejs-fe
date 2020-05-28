@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-    baseURL: 'http://fastapi-be:8000',
+    baseURL: process.env.BASE_URL,
     withCredentials: false,
     headers: {
         Accept: 'application/json',
