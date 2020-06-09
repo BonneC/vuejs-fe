@@ -35,6 +35,6 @@
 
 <style>
     #app {
-        background-color:#232323;
+        background-color:#0f1010;
     }
 </style>

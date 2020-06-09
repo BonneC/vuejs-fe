@@ -1,29 +1,43 @@
 <template>
-    <div class="container-fluid clearfix" id="imagesList">
-<!--        <div class="partition-title">LIST OF THE IMAGES FOR {{category}}</div>-->
-        <div class="row">
-            <div class="col-md-4"
-                 v-for="(src, index) in urls"
-                 :key="index">
-                <div id="imageCard" class="show-image card"
-                     @click="() => showImg(index)">
-                    <!--                <div class="col-md-4">-->
-                    <!--                    <div class="show-image card"-->
-                    <!--                         >-->
+    <div class="main">
+        <!--        <div class="partition-title">LIST OF THE IMAGES FOR {{category}}</div>-->
+        <div class="masonry-with-columns" >
+            <div class="masonry-item" v-for="(src, index) in urls"
+                 :key="index" @click="() => showImg(index)">
+                <div class="masonry-content">
+                    <div class="image-container"><img :src="src" alt="img"></div>
 
-                    <div class="thumbnail" style="background: black">
-                        <img class="card-img-top" :src="src" alt="img">
-                    </div>
+                    <h3 class="masonry-title">{{images[index].title}}</h3>
+                    <p class="masonry-description">Deskripshon</p>
 
-                    <div class="card-body">
-                        <h4>{{images[index].title}}</h4>
-                        <p>Deskripshon</p>
-                    </div>
                     <!--                    </div>-->
                     <!--                </div>-->
                 </div>
             </div>
         </div>
+        <!--        <div class="masonry-with-columns">-->
+        <!--            <div-->
+        <!--                    v-for="(src, index) in urls"-->
+        <!--                    :key="index">-->
+        <!--                <div id="imageCard" class="show-image card image-card"-->
+        <!--                     @click="() => showImg(index)">-->
+        <!--                    &lt;!&ndash;                <div class="col-md-4">&ndash;&gt;-->
+        <!--                    &lt;!&ndash;                    <div class="show-image card"&ndash;&gt;-->
+        <!--                    &lt;!&ndash;                         >&ndash;&gt;-->
+
+        <!--                    <div class="thumbnail" style="background: black">-->
+        <!--                        <img class="card-img-top" :src="src" alt="img">-->
+        <!--                    </div>-->
+
+        <!--                    <div class="card-body">-->
+        <!--                        <h4>{{images[index].title}}</h4>-->
+        <!--                        <p>Deskripshon</p>-->
+        <!--                    </div>-->
+        <!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+        <!--                    &lt;!&ndash;                </div>&ndash;&gt;-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
         <vue-easy-lightbox
                 :visible="visible"
                 :imgs="urls"
@@ -75,6 +89,7 @@
                         for (let i = 0; i < this.images.length; i++) {
                             console.log('ImAZH ' + this.images[i].id)
                             this.urls.push('http://localhost:8000/image/' + this.images[i].id)
+                            // this.urls.push('http://localhost/image/' + this.images[i].id)
                         }
                         console.log('URLS ' + this.urls)
                     })
@@ -99,72 +114,51 @@
 </script>
 
 <style scoped lang="scss">
-    .container {
-        #imagesList {
-            background: #0f1010;
-            padding-bottom: 100px;
-            margin-top: 30px;
-            box-shadow: 1px 1px 10px #0f1010;
-        }
-
-        label {
-            font-size: 15px;
-        }
-
-        #imageCard {
-        }
-
-        .card-body {
-            padding: 0;
-        }
-
-        .img-title {
-            font-family: "Roboto";
-            letter-spacing: 1px;
-            font-size: 20px;
-            font-weight: 500;
-        }
-
-        .thumbnail {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .thumbnail img {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            height: 100%;
-            width: auto;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-
-        .thumbnail img.portrait {
+    .masonry-with-columns {
+        columns: 4 200px;
+        column-gap: 1rem;
+        .masonry-item {
+            width: 150px;
+            color: white;
+            margin: 0 1rem 1rem 0;
+            display: inline-block;
             width: 100%;
-            height: auto;
-        }
-
-        div.show-image {
-            position: relative;
-            float: left;
-            margin: 5px;
-        }
-
-        @mixin clearfix() {
-            &::after {
-                display: block;
-                content: "";
-                clear: both;
+            text-align: center;
+            font-weight: 900;
+            font-size: 2rem;
+            overflow: hidden;
+            box-shadow: 1px 1px 10px #0f1010;
+            border: none;
+            background-color: rgba(35, 35, 35, 0.55);
+            font-family: "Roboto", sans-serif;
+            top: 0;
+            transition: top ease 0.5s;
+            &:hover{
+                top: -10px;
+                box-shadow: 5px 5px 10px #000000;
+                img{
+                    transform: scale(1.5);
+                }
             }
+            .image-container{
+                width: inherit;
+                overflow: hidden;
+            }
+
+            img{
+                max-width: 100%;
+                height: auto;
+                transition: transform .5s ease;
+                overflow: hidden;
+                /*&:hover{*/
+                /*    transform: scale(1.5);*/
+                /*}*/
+            }
+
+
+
         }
 
-        // Usage as a mixin
-        .element {
-            @include clearfix;
-        }
     }
+
 </style>

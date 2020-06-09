@@ -9,14 +9,35 @@ $facebook_color: #6b7eaa;
 }
 
 html {
-  background-color:#232323;;
+  background-color:#0f1010;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-//fafbfd
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+.wrapper {
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1.5em;
+}
+
+.main{
+  padding: 20px;
+}
 
 .card {
   box-shadow: 1px 1px 10px #0f1010;
