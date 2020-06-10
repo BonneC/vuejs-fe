@@ -88,7 +88,7 @@
                         this.images = response.data
                         for (let i = 0; i < this.images.length; i++) {
                             console.log('ImAZH ' + this.images[i].id)
-                            this.urls.push('http://localhost:8000/image/' + this.images[i].id)
+                            this.urls.push('http://192.168.0.29/8000/image/' + this.images[i].id)
                             // this.urls.push('http://localhost/image/' + this.images[i].id)
                         }
                         console.log('URLS ' + this.urls)
